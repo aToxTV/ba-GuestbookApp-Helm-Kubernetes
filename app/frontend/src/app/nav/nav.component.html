@@ -3,7 +3,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
-    <mat-toolbar><img  src="./assets/img/Globo_logo.png" align="left" width="180"/></mat-toolbar>
+    <mat-toolbar><img src="./assets/img/Globo_logo.png" width="180"/></mat-toolbar>
     <mat-nav-list>
 
     </mat-nav-list>
@@ -18,7 +18,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Guestbook : "Concert For Climate 1.1"</span>
+      <span>Guestbook : "{{guestbookName}}"</span>
     </mat-toolbar>
     <app-guestbook></app-guestbook>
   </mat-sidenav-content>

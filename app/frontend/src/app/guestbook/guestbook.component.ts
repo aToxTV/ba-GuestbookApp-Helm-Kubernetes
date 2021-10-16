@@ -29,17 +29,12 @@ export class GuestbookComponent implements OnInit {
 
   name: string;
   message:string;
-
-
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private guestbookService:GuestbookService) {
-    // Create 100 users
-    //const users = {name:"phico",message:"hello how are you this is my first test hello how are you this is my first test hello how are you this is my first test hello how are you this is my first test"};
-    //console.log(users);
-    // Assign the data to the data source for the table to render
-    //this.dataSource = new MatTableDataSource([users]);
+ 
   }
 
   ngOnInit() {

@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  guestBookName: '{{GUESTBOOK_NAME}}',
+  backendUri: '{{BACKEND_URI}}'
 };
