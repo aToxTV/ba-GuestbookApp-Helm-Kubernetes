@@ -1,10 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ .Release.Name}}-{{.Chart.Name}}-ingress
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-ingress
 spec:
   rules:
-  - host: {{ .Values.ingress.host}}
+  - host: {{ .Values.ingress.host }}
     http:
       paths:
       - path: /
