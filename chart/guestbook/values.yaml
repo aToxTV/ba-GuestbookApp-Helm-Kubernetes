@@ -1,7 +1,24 @@
 # Since DB uname/pswd is common to the entire chart, we can override the backend values with admin values in the umbrella chart
 # IMP retain the same hierarchy as backend.values.yaml
 # common practice when re-using existing charts from Helm repository
-secret:
-  mongodb_uri:
-    username: admin
-    password: password
+backend:
+  secret:
+    mongodb_uri:
+      username: admin
+      password: password
+  ingress:
+    # override backend settings 
+    enabled: false
+frontend:
+  ingress:
+     # override frontend settings
+    enabled: false
+
+ingress:
+  hosts:
+    - host:
+        domain: frontend.minikube.local
+        chart: frontend
+    - host:
+        domain: backend.minikube.local
+        chart: backend
