@@ -1,7 +1,7 @@
-secret:
 # Since DB uname/pswd is common to the entire chart, we can override the backend values with admin values in the umbrella chart
-# IMP: retain the same hierarchy as backend.values.yaml
+# IMP retain the same hierarchy as backend.values.yaml
 # common practice when re-using existing charts from Helm repository
+secret:
   mongodb_uri:
     username: admin
     password: password
