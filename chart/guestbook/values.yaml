@@ -5,7 +5,7 @@ backend:
   secret:
     mongodb_uri:
       username: admin
-      password: password
+      password: admin
   ingress:
     # override backend settings 
     enabled: false
