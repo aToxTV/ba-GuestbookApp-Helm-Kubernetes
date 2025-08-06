@@ -12,6 +12,8 @@ spec:
       - path: /
         pathType: Prefix
         backend:
-            serviceName: {{ $.Release.Name}}-{{ .host.chart }}
-            servicePort: 80
+          service:
+            name: {{ $.Release.Name}}-{{ .host.chart }}
+            port:
+              number: 80
 {{- end }}
