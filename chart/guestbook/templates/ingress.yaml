@@ -21,4 +21,4 @@ spec:
     app: ba-guestbook-helm-frontend
   sessionAffinity: None
   type: LoadBalancer
-{{- end }}
+  
