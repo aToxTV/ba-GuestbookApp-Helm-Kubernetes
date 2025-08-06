@@ -1,19 +1,24 @@
 apiVersion: networking.k8s.io/v1
-kind: Ingress
+kind: service
 metadata:
-  name: {{ .Release.Name }}-{{ .Chart.Name }}-ingress
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-lb
 spec:
-  rules:
-{{- range .Values.ingress.hosts }}
-# Ex: dev.frontend.minikube.local
-  - host: {{ $.Release.Name }}.{{ .host.domain }}
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ $.Release.Name}}-{{ .host.chart }}
-            port:
-              number: 80
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.107.205.176
+  clusterIPs:
+    - 10.107.205.176
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - nodePort: 31507
+      port: 80
+      protocol: TCP
+      targetPort: 4200
+  selector:
+    app: ba-guestbook-helm-frontend
+  sessionAffinity: None
+  type: LoadBalancer
 {{- end }}
