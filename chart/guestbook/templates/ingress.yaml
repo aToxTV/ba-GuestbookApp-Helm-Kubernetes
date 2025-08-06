@@ -4,9 +4,6 @@ metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}-lb
 spec:
   allocateLoadBalancerNodePorts: true
-  clusterIP: 10.107.205.176
-  clusterIPs:
-    - 10.107.205.176
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
